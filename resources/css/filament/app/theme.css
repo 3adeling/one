@@ -5,3 +5,7 @@
 .fi-body {
     @apply bg-white;
 }
+
+.fi-topbar > nav > ul{
+    @apply sm:w-full sm:justify-center;
+}

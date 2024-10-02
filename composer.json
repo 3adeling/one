@@ -6,9 +6,13 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "cheesegrits/filament-google-maps": "^3.0",
         "filament/filament": "^3.2",
+        "filament/spatie-laravel-translatable-plugin": "^3.2",
         "laravel/framework": "^11.9",
-        "laravel/tinker": "^2.9"
+        "laravel/tinker": "^2.9",
+        "matanyadaev/laravel-eloquent-spatial": "^4.3",
+        "webbingbrasil/filament-maps": "^3.0@beta"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",

@@ -28,12 +28,16 @@ class AppPanelProvider extends PanelProvider
             ->id('app')
             ->path('/')
             ->colors([
-                'primary' => Color::Zinc,
+                'primary' => Color::Yellow,
             ])
+            ->login()
+            ->topNavigation(true)
             ->discoverResources(in: app_path('Filament/App/Resources'), for: 'App\\Filament\\App\\Resources')
             ->discoverPages(in: app_path('Filament/App/Pages'), for: 'App\\Filament\\App\\Pages')
             ->pages([
-                Pages\Home::class,
+                Pages\HomePage::class,
+                Pages\AboutUsPage::class,
+                Pages\ContactUsPage::class,
             ])
             ->discoverWidgets(in: app_path('Filament/App/Widgets'), for: 'App\\Filament\\App\\Widgets')
             ->widgets([
@@ -52,10 +56,13 @@ class AppPanelProvider extends PanelProvider
                 DispatchServingFilamentEvent::class,
             ])
             ->authMiddleware([
-                Authenticate::class,
+                // Authenticate::class,
             ])
             ->viteTheme(theme: 'resources/css/filament/app/theme.css')
             ->font(provider: GoogleFontProvider::class, family: 'IBM Plex Sans Arabic')
-            ->sidebarCollapsibleOnDesktop(true);
+            ->sidebarCollapsibleOnDesktop(true)
+            ->brandLogo(asset('images/logo.svg'))
+            ->brandName('Filament')
+            ->spa();
     }
 }

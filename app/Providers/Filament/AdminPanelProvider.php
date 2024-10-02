@@ -9,6 +9,7 @@ use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Pages;
 use Filament\Panel;
 use Filament\PanelProvider;
+use Filament\SpatieLaravelTranslatablePlugin;
 use Filament\Support\Colors\Color;
 use Filament\Widgets;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
@@ -57,6 +58,9 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->viteTheme(theme: 'resources/css/filament/admin/theme.css')
             ->font(provider: GoogleFontProvider::class, family: 'IBM Plex Sans Arabic')
-            ->sidebarCollapsibleOnDesktop(true);
+            ->sidebarCollapsibleOnDesktop(true)
+            ->plugins([
+                SpatieLaravelTranslatablePlugin::make()->defaultLocales(['ar', 'en']),
+            ]);
     }
 }
