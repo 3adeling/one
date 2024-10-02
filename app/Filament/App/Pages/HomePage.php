@@ -53,10 +53,12 @@ class HomePage extends Page implements HasForms, HasActions
                 ->form([
                     TextInput::make('title')
                         ->label('Title')
+                        ->translateLabel()
                         ->placeholder('Enter title')
                         ->required(),
                     Select::make('region')
                         ->label('Region')
+                        ->translateLabel()
                         ->placeholder('Select Region')
                         ->required()
                         ->searchable()
@@ -64,6 +66,7 @@ class HomePage extends Page implements HasForms, HasActions
                         ->options(fn () => Region::isActive()->pluck('name', 'id')),
                     Select::make('city')
                         ->label('City')
+                        ->translateLabel()
                         ->placeholder('Select City')
                         ->required()
                         ->searchable()
@@ -72,6 +75,7 @@ class HomePage extends Page implements HasForms, HasActions
                         ->options(fn (Get $get) => City::isActive()->where('region_id', $get('region'))->get()->pluck('name', 'id')),
                     Select::make('district')
                         ->label('District')
+                        ->translateLabel()
                         ->placeholder('Select District')
                         ->required()
                         ->searchable()
@@ -80,10 +84,12 @@ class HomePage extends Page implements HasForms, HasActions
                         ->options(fn (Get $get) => District::isActive()->where('city_id', $get('city'))->get()->pluck('name', 'id')),
                     RichEditor::make('content')
                         ->label('Content')
+                        ->translateLabel()
                         ->placeholder('Enter content')
                         ->required(),
                     FileUpload::make('attachments')
                         ->label('Attachments')
+                        ->translateLabel()
                         ->placeholder('Upload attachments')
                         ->multiple()
                         ->image(),
